@@ -32,5 +32,32 @@ namespace Singelton
         }
 
         #endregion
+
+        #region Loaded
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LocalDb.Instance.ShowMe();
+            LocalDb.Instance.ShowMe();
+            LocalDb.Instance.ShowMe();
+        }
+
+        #endregion
+    }
+
+    public class LocalDb : NSingelton<LocalDb>
+    {
+        private int iCnt = 0;
+
+        protected LocalDb() : base() 
+        {
+            Console.WriteLine("Call constructor");
+        }
+
+        public void ShowMe()
+        {
+            iCnt++;
+            Console.WriteLine("Call show me {0}", iCnt);
+        }
     }
 }

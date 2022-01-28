@@ -1,4 +1,11 @@
 [commited]
+2022-01-28 #2
+- Singleton.Common project
+  - Implement generic singelton class.
+- Singleton.App project
+  - Implement test singelton class.
+
+[commited]
 2022-01-28 #1
 - Add Singleton.Common project
 - Add Singleton.App project
