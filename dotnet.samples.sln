@@ -13,6 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLite", "SQLite", "{556029
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.Net.Sample", "Databases\SQLite\SQLite.Net.Sample\SQLite.Net.Sample.csproj", "{4DAE2F0F-7AB7-42DF-B731-54D28486AB32}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E12A7714-3DD9-4F60-90D4-CB4C4F857F3D}"
+	ProjectSection(SolutionItems) = preProject
+		history.txt = history.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
