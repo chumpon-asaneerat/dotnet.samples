@@ -1,0 +1,6 @@
+[commited]
+2022-01-28 #1
+- Add Singleton.Common project
+- Add Singleton.App project
+- Update SQLite.Net.Sample
+  - Add related reference assemblies.

@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Databases", "Databases", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{22980C5C-104B-4E40-AD1D-43B2148573DE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLite", "SQLite", "{5560295A-9E0C-4BE2-841F-FFF6BBEB4F79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.Net.Sample", "Databases\SQLite\SQLite.Net.Sample\SQLite.Net.Sample.csproj", "{4DAE2F0F-7AB7-42DF-B731-54D28486AB32}"
@@ -17,6 +15,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		history.txt = history.txt
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{958BF3FF-6F59-44BB-9439-DE94988B547C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design.Patterns", "Design.Patterns", "{8CD0B3D4-CEA4-4176-91DF-B6228F858E44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Singelton", "Singelton", "{5AEEADDE-D986-4CBD-887F-B95B6BE85361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singelton.Common", "Design.Patterns\Singelton\Singelton.Common\Singelton.Common.csproj", "{4A76DCC5-8C17-4C0B-9BAF-3750B10D1EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singelton.App", "Design.Patterns\Singelton\Singelton.App\Singelton.App.csproj", "{10990918-C4B7-4014-9D56-EFF95414FE0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,14 +36,25 @@ Global
 		{4DAE2F0F-7AB7-42DF-B731-54D28486AB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DAE2F0F-7AB7-42DF-B731-54D28486AB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DAE2F0F-7AB7-42DF-B731-54D28486AB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A76DCC5-8C17-4C0B-9BAF-3750B10D1EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A76DCC5-8C17-4C0B-9BAF-3750B10D1EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A76DCC5-8C17-4C0B-9BAF-3750B10D1EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A76DCC5-8C17-4C0B-9BAF-3750B10D1EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10990918-C4B7-4014-9D56-EFF95414FE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10990918-C4B7-4014-9D56-EFF95414FE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10990918-C4B7-4014-9D56-EFF95414FE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10990918-C4B7-4014-9D56-EFF95414FE0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{22980C5C-104B-4E40-AD1D-43B2148573DE} = {D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}
+		{D6B0118B-CF71-44AE-B191-F1DE45C7DE1B} = {958BF3FF-6F59-44BB-9439-DE94988B547C}
 		{5560295A-9E0C-4BE2-841F-FFF6BBEB4F79} = {83892466-0BD3-40D9-B314-DDDB5301E42D}
 		{4DAE2F0F-7AB7-42DF-B731-54D28486AB32} = {5560295A-9E0C-4BE2-841F-FFF6BBEB4F79}
+		{5AEEADDE-D986-4CBD-887F-B95B6BE85361} = {8CD0B3D4-CEA4-4176-91DF-B6228F858E44}
+		{4A76DCC5-8C17-4C0B-9BAF-3750B10D1EE7} = {5AEEADDE-D986-4CBD-887F-B95B6BE85361}
+		{10990918-C4B7-4014-9D56-EFF95414FE0E} = {5AEEADDE-D986-4CBD-887F-B95B6BE85361}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {501C5C0B-8BBB-4383-B646-E9B03E6880B4}
