@@ -1,4 +1,9 @@
 [commited]
+2022-01-29 #1
+- INPC.Sample project
+  - Implement test INotifyPropertyChanged class.
+
+[commited]
 2022-01-28 #2
 - Singleton.Common project
   - Implement generic singelton class.
