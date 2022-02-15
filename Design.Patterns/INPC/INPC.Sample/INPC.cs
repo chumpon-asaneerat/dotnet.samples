@@ -11,6 +11,8 @@ using System.Linq.Expressions;
 
 namespace INPC.Sample
 {
+    // source: https://stackoverflow.com/questions/1315621/implementing-inotifypropertychanged-does-a-better-way-exist
+
     #region NET40
 
     public class INPCNet40 : INotifyPropertyChanged

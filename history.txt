@@ -1,4 +1,9 @@
 [commited]
+2022-02-16 #1
+- INPC.Sample project
+  - add reference link of INPC code.
+
+[commited]
 2022-01-29 #1
 - INPC.Sample project
   - Implement test INotifyPropertyChanged class.
