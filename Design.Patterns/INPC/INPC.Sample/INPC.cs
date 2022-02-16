@@ -133,6 +133,12 @@ namespace INPC.Sample
 
     #endregion
 
+    #region NET40 - LINQv2
+
+    #endregion
+
+    #region INotifyPropertyChanged Extensions
+
     public static class INotifyPropertyChangedExtensions
     {
         public static bool SetPropertyAndNotify<T>(this INotifyPropertyChanged sender,
@@ -140,19 +146,21 @@ namespace INPC.Sample
                    [CallerMemberName] string propertyName = "",
                    EqualityComparer<T> equalityComparer = null)
         {
-            bool rtn = false;
             var eqComp = equalityComparer ?? EqualityComparer<T>.Default;
+            bool hasChanged = false;
             if (!eqComp.Equals(field, value))
             {
                 field = value;
-                rtn = true;
+                hasChanged = true;
                 if (handler != null)
                 {
                     var args = new PropertyChangedEventArgs(propertyName);
                     handler(sender, args);
                 }
             }
-            return rtn;
+            return hasChanged;
         }
     }
+
+    #endregion
 }

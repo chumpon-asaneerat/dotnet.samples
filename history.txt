@@ -1,4 +1,9 @@
 [commited]
+2022-02-16 #3
+- INPC.Sample project
+  - Implements advance feature #1.
+
+[commited]
 2022-02-16 #2
 - INPC.Sample project
   - Prepare layout for test advance feature.

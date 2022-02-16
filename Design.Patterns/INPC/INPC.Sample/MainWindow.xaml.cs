@@ -2,7 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,6 +45,7 @@ namespace INPC.Sample
         }
     }
 
+    #region INPCNet40
     /*
     public class Item : INPCNet40
     {
@@ -54,6 +57,9 @@ namespace INPC.Sample
         }
     }
     */
+    #endregion
+
+    #region INPCNet45
     /*
     public class Item : INPCNet45
     {
@@ -65,6 +71,10 @@ namespace INPC.Sample
         }
     }
     */
+    #endregion
+
+    #region INPCNet40LINQ
+    /*
     public class Item : INPCNet40LINQ
     {
         private int _total = 0;
@@ -82,4 +92,39 @@ namespace INPC.Sample
 
         public int Total { get { return _total; } }
     }
+    */
+    #endregion
+
+    #region INotifyPropertyChanged Extensions
+
+    // use INotifyPropertyChanged Extensions
+    public class Item : System.ComponentModel.INotifyPropertyChanged
+    {
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private string _value = string.Empty;
+        public string Value
+        {
+            get { return _value; }
+            set
+            {
+                if (this.SetPropertyAndNotify(PropertyChanged, ref _value, value))
+                {
+                    Console.WriteLine("Value changed.");
+                }
+                else
+                {
+                    Console.WriteLine("No change.");
+                }
+            }
+        }
+    }
+
+    #endregion
 }
