@@ -1,4 +1,9 @@
 [commited]
+2022-02-16 #2
+- INPC.Sample project
+  - Prepare layout for test advance feature.
+
+[commited]
 2022-02-16 #1
 - INPC.Sample project
   - add reference link of INPC code.

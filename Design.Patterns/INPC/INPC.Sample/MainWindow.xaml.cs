@@ -36,6 +36,11 @@ namespace INPC.Sample
             txtSrc.DataContext = item;
             txtDst.DataContext = item;
         }
+
+        private void cmdTest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     /*

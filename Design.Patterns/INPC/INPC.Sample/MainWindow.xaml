@@ -11,13 +11,25 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5, 2" Orientation="Vertical" Grid.Column="0" Grid.Row="0">
             <TextBlock Text="Value:" />
             <TextBox x:Name="txtSrc" Text="{Binding Value}"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="1">
+        <StackPanel Margin="5, 2" Orientation="Vertical" Grid.Column="1" Grid.Row="0">
             <TextBlock Text="Value:" />
             <TextBox x:Name="txtDst" Text="{Binding Value}"/>
         </StackPanel>
+        <Grid Margin="5, 2" Grid.Column="0" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="cmdTest" Content="Test" Click="cmdTest_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+
+        </Grid>
     </Grid>
 </Window>
