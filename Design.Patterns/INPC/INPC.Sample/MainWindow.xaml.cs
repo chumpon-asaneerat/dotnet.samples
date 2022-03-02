@@ -95,9 +95,10 @@ namespace INPC.Sample
     */
     #endregion
 
-    #region INotifyPropertyChanged Extensions
+    #region INotifyPropertyChanged Extensions v1
 
-    // use INotifyPropertyChanged Extensions
+    // use INotifyPropertyChanged Extensions v1
+    /*
     public class Item : System.ComponentModel.INotifyPropertyChanged
     {
         protected virtual void OnPropertyChanged(string propertyName)
@@ -122,6 +123,42 @@ namespace INPC.Sample
                 {
                     Console.WriteLine("No change.");
                 }
+            }
+        }
+    }
+    */
+    #endregion
+
+    #region INotifyPropertyChanged Extensions v2
+
+    // use INotifyPropertyChanged Extensions v2
+    public class Item : System.ComponentModel.INotifyPropertyChanged
+    {
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private string _value = string.Empty;
+        public string Value
+        {
+            get { return _value; }
+            set
+            {
+                this.IfChanged(ref _value, value)
+                    .Then((owner) => 
+                    {
+                        Console.WriteLine("Value changed. old: {0}, new {1}", owner.OldValue, owner.NewValue);
+                    })
+                    .Raise(PropertyChanged)
+                    .Then((owner) => 
+                    {
+                        Console.WriteLine("After Raise Event.", owner.OldValue, owner.NewValue);
+                    });
+
             }
         }
     }

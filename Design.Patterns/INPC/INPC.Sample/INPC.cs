@@ -137,8 +137,8 @@ namespace INPC.Sample
 
     #endregion
 
-    #region INotifyPropertyChanged Extensions
-
+    #region INotifyPropertyChanged Extensions v1
+    /*
     public static class INotifyPropertyChangedExtensions
     {
         public static bool SetPropertyAndNotify<T>(this INotifyPropertyChanged sender,
@@ -159,6 +159,71 @@ namespace INPC.Sample
                 }
             }
             return hasChanged;
+        }
+    }
+    */
+    #endregion
+
+    #region INotifyPropertyChanged Extensions v2
+
+    public static class INotifyPropertyChangedExtensions
+    {
+        public class PropertyChangedAction<T>
+        {
+            private PropertyChangedAction() : base() { }
+            internal PropertyChangedAction(INotifyPropertyChanged sender, 
+                string propertyName, 
+                T oldValue, T newValue,
+                bool hasChanged = false) : this() 
+            {
+                Sender = sender;
+                PropertyName = propertyName;
+                OldValue = oldValue;
+                NewValue = newValue;
+                HasChanged = hasChanged;
+            }
+
+            public INotifyPropertyChanged Sender { get; private set; }
+            public string PropertyName { get; private set; }
+            public bool HasChanged { get; internal set; }
+
+            public T OldValue { get; private set; }
+            public T NewValue { get; private set; }
+
+            public PropertyChangedAction<T> Then(Action<PropertyChangedAction<T>> action)
+            {
+                if (null != Sender && HasChanged && !string.IsNullOrWhiteSpace(PropertyName))
+                {
+                    if (null != action) action(this);
+                }
+                return this;
+            }
+
+            public PropertyChangedAction<T> Raise(PropertyChangedEventHandler handler)
+            {
+                if (null != Sender && HasChanged && !string.IsNullOrWhiteSpace(PropertyName))
+                {
+                    if (null != handler)
+                    {
+                        handler(Sender, new PropertyChangedEventArgs(PropertyName));
+                    }
+                }
+                return this;
+            }
+        }
+
+        public static PropertyChangedAction<T> IfChanged<T>(this INotifyPropertyChanged sender,
+            ref T field, T value,
+            [CallerMemberName] string propertyName = "")
+        {
+            var eqComp = EqualityComparer<T>.Default;
+            PropertyChangedAction<T> action = new PropertyChangedAction<T>(sender, propertyName, field, value, false);
+            if (!eqComp.Equals(field, value))
+            {
+                field = value;
+                action.HasChanged = true; // set flag.
+            }
+            return action;
         }
     }
 
