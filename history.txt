@@ -1,4 +1,9 @@
 [commited]
+2022-03-05 #1
+- INPC.Sample project
+  - Implements get process info and kill process method.
+
+[commited]
 2022-03-02 #1
 - INPC.Sample project
   - Implements advance feature #2.
