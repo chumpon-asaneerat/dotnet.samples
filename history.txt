@@ -1,4 +1,11 @@
 [commited]
+2022-03-08 #12
+- Wpf.WS.Client project
+  - Update App.xaml, App.xaml.cs code.
+- Wpf.WS.Server project
+  - Update App.xaml, App.xaml.cs code.
+
+[commited]
 2022-03-08 #11
 - Wpf.Rest.Client project
   - Update App.xaml, App.xaml.cs code.
