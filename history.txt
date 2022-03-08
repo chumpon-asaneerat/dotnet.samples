@@ -1,4 +1,10 @@
 [commited]
+2022-03-08 #6
+- Add System.Management amd System.Management.Instrumentation reference dll in projects
+  - Wpf.Process.Monitor
+  - Wpf.Process.Sample
+
+[commited]
 2022-03-08 #5
 - Update App.Config in projects
   - Wpf.Rest.Client
