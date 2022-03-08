@@ -1,4 +1,12 @@
 [commited]
+2022-03-08 #15
+- Wpf.WS.Server project
+  - Update RestStartUp class #2.
+    - Add BasicAuthenticationMiddleware class.
+    - Add CustomBodyModelValidator class (has some fixed code. need to recheck).
+    - Add AddAuthorizationHeaderParameterOperationFilter class (comment out. need Swashbuckle.Core dll).
+
+[commited]
 2022-03-08 #14
 - Wpf.WS.Server project
   - Add RestStartUp class #1.
