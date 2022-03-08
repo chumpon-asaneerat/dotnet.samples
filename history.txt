@@ -1,4 +1,9 @@
 [commited]
+2022-03-08 #10
+- Wpf.Process.Monitor project
+  - Update App.xaml, App.xaml.cs code.
+
+[commited]
 2022-03-08 #9
 - INPC.Sample project
   - Remove get process info and kill process method.
