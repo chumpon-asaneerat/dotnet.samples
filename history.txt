@@ -1,4 +1,12 @@
 [commited]
+2022-03-08 #2
+- Add NewtonSoft.json reference dall in projects
+  - Wpf.Rest.Client
+  - Wpf.Rest.Server
+  - Wpf.WS.Client
+  - Wpf.WS.Server
+
+[commited]
 2022-03-08 #1
 - Add projects
   - Wpf.Process.Monitor
