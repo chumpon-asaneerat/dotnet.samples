@@ -1,6 +1,14 @@
 [commited]
+2022-03-08 #5
+- Update App.Config in projects
+  - Wpf.Rest.Client
+  - Wpf.Rest.Server
+  - Wpf.WS.Client
+  - Wpf.WS.Server
+
+[commited]
 2022-03-08 #4
-- Add websocket-sharp reference dall in projects
+- Add websocket-sharp reference dll in projects
   - Wpf.WS.Client
   - Wpf.WS.Server
 
@@ -13,7 +21,7 @@
 
 [commited]
 2022-03-08 #2
-- Add NewtonSoft.json reference dall in projects
+- Add NewtonSoft.json reference dll in projects
   - Wpf.Rest.Client
   - Wpf.Rest.Server
   - Wpf.WS.Client
