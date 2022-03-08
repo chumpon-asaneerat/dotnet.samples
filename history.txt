@@ -1,4 +1,9 @@
 [commited]
+2022-03-08 #13
+- Wpf.WS.Server project
+  - Add Owin dll reference assemblies.
+
+[commited]
 2022-03-08 #12
 - Wpf.WS.Client project
   - Update App.xaml, App.xaml.cs code.
