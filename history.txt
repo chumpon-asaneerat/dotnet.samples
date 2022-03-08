@@ -1,4 +1,11 @@
 [commited]
+2022-03-08 #3
+- Add reference assemblies to solution
+  - Owin
+  - Rest-Sharp
+  - WebSocket-Sharp
+
+[commited]
 2022-03-08 #2
 - Add NewtonSoft.json reference dall in projects
   - Wpf.Rest.Client
