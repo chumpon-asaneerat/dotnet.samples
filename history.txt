@@ -1,4 +1,11 @@
 [commited]
+2022-03-08 #16
+- Wpf.WS.Server project
+  - Add Swashbuckle.Core reference.
+  - Update RestStartUp class #3.
+    - Update AddAuthorizationHeaderParameterOperationFilter class.
+
+[commited]
 2022-03-08 #15
 - Wpf.WS.Server project
   - Update RestStartUp class #2.

@@ -23,8 +23,8 @@ using System.Text;
 using System.Web.Http.Description;
 using System.Web.Http.Filters;
 
-//using Swashbuckle.Swagger;
-//using Swashbuckle.Application;
+using Swashbuckle.Swagger;
+using Swashbuckle.Application;
 
 #endregion
 
@@ -136,7 +136,7 @@ namespace Wpf.Rest.Server
     #endregion
 
     #region AddAuthorizationHeaderParameterOperationFilter
-    /*
+
     /// <summary>
     /// AddAuthorizationHeaderParameterOperationFilter class for swagger.
     /// </summary>
@@ -173,7 +173,7 @@ namespace Wpf.Rest.Server
             }
         }
     }
-    */
+
     #endregion
 
     public abstract class RestStartUp
