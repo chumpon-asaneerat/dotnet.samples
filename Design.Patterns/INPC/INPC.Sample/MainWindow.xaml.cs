@@ -37,10 +37,6 @@ namespace INPC.Sample
         {
             txtSrc.DataContext = item;
             txtDst.DataContext = item;
-
-            string procInfo = string.Format("Handle: {0}, Id: {1}, Count:{2:n0}", App.Handle, App.Id, App.ProcessCount);
-
-            this.Title = this.Title + "  -  [" + procInfo + "]";
         }
 
         private void cmdTest_Click(object sender, RoutedEventArgs e)

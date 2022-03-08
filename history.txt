@@ -1,4 +1,11 @@
 [commited]
+2022-03-08 #9
+- INPC.Sample project
+  - Remove get process info and kill process method.
+- Wpf.Process.Sample project
+  - Add kill process method (comment out).
+
+[commited]
 2022-03-08 #8
 - Wpf.Process.Sample project
   - Add ProcessUtil class #1.
