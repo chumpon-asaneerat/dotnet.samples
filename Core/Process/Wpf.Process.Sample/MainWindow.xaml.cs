@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Using
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+#endregion
+
 namespace Wpf.Process.Sample
 {
     /// <summary>
@@ -20,9 +24,27 @@ namespace Wpf.Process.Sample
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Constructor
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Button Handlers
+
+        private void cmdCheck_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmdFreeze_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,10 @@
 [commited]
+2022-03-08 #7
+- Wpf.Process.Sample project
+  - Update App.xaml, App.xaml.cs code.
+  - Update MainWindow layout #1.
+
+[commited]
 2022-03-08 #6
 - Add System.Management amd System.Management.Instrumentation reference dll in projects
   - Wpf.Process.Monitor

@@ -3,10 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Wpf.Process.Sample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Process Sample" Height="450" Width="800">
+    <DockPanel LastChildFill="True" Margin="5">
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top" Height="Auto" Margin="2">
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <Button Margin="2" x:Name="cmdCheck" Content="Check" Width="150" Click="cmdCheck_Click"/>
+                <Button Margin="2" x:Name="cmdFreeze" Content="Freeze" Width="150" Click="cmdFreeze_Click"/>
+                <Button Margin="2" Content="N/A" Width="150" />
+                <Button Margin="2" Content="N/A" Width="150" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <TextBlock Margin="5, 0" FontSize="16" Text="Process Name:" />
+                <TextBlock Margin="5, 0" x:Name="txtProcessName" FontSize="16" Foreground="ForestGreen" Text="-" />
+                <TextBlock Margin="5, 0" FontSize="16" Text="Count:" />
+                <TextBlock Margin="5, 0" x:Name="txtProcessCount" FontSize="16" Foreground="DarkRed" Text="0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <TextBlock Margin="5, 0" FontSize="16" Text="Performance information:" />
+                <TextBlock Margin="5, 0" x:Name="txtPerfInfo" FontSize="16" Foreground="ForestGreen" Text="-" />
+            </StackPanel>
+        </StackPanel>
+        <Grid />
+    </DockPanel>
 </Window>
