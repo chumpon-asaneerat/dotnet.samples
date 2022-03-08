@@ -1,4 +1,14 @@
 [commited]
+2022-03-08 #1
+- Add projects
+  - Wpf.Process.Monitor
+  - Wpf.Process.Sample
+  - Wpf.Rest.Client
+  - Wpf.Rest.Server
+  - Wpf.WS.Client
+  - Wpf.WS.Server
+
+[commited]
 2022-03-05 #1
 - INPC.Sample project
   - Implements get process info and kill process method.
