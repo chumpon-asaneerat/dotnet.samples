@@ -1,4 +1,10 @@
 [commited]
+2022-03-08 #4
+- Add websocket-sharp reference dall in projects
+  - Wpf.WS.Client
+  - Wpf.WS.Server
+
+[commited]
 2022-03-08 #3
 - Add reference assemblies to solution
   - Owin
