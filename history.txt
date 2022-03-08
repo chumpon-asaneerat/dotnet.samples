@@ -1,4 +1,10 @@
 [commited]
+2022-03-08 #8
+- Wpf.Process.Sample project
+  - Add ProcessUtil class #1.
+  - Update MainWindow layout #2.
+
+[commited]
 2022-03-08 #7
 - Wpf.Process.Sample project
   - Update App.xaml, App.xaml.cs code.

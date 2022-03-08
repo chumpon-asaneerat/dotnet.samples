@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 #endregion
 
@@ -33,6 +34,34 @@ namespace Wpf.Process.Sample
 
         #endregion
 
+        #region Internal Variables
+
+        private DispatcherTimer _timer = null;
+
+        #endregion
+
+        #region Loaded/Unloaded
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromMilliseconds(1000);
+            _timer.Tick += _timer_Tick;
+            _timer.Start();
+        }
+
+        private void Window_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (null != _timer)
+            {
+                _timer.Stop();
+                _timer.Tick -= _timer_Tick;
+            }
+            _timer = null;
+        }
+
+        #endregion
+
         #region Button Handlers
 
         private void cmdCheck_Click(object sender, RoutedEventArgs e)
@@ -43,6 +72,29 @@ namespace Wpf.Process.Sample
         private void cmdFreeze_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        #endregion
+
+        #region Timer Handler
+
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            string processName = ProcessUtils.Current.ProcessName;
+            var processes = ProcessUtils.GetProcesses(processName);
+            int processCount = (null != processes) ? processes.Length : 0;
+
+            TimeSpan ts = DateTime.Now - dt;
+
+            txtProcessName.Text = processName;
+            txtProcessCount.Text = processCount.ToString("n0");
+
+            string execTime = string.Format("Execute time {0:n0} ms.", ts.TotalMilliseconds);
+            txtExecTime.Text = execTime;
+
+            string msg = string.Format("Updated {0:HH:mm:ss.fff}", DateTime.Now);
+            txtLastUpdated.Text = msg;
         }
 
         #endregion
