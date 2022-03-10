@@ -16,15 +16,15 @@
                     Margin="2">
             <StackPanel Orientation="Horizontal" Margin="2">
                 <Button Margin="2"
-                        x:Name="cmdCheck"
-                        Content="Check"
+                        x:Name="cmdFreeze60"
+                        Content="Freeze (60 seconds)"
                         Width="150"
-                        Click="cmdCheck_Click" />
+                        Click="cmdFreeze60_Click" />
                 <Button Margin="2"
-                        x:Name="cmdFreeze"
-                        Content="Freeze"
+                        x:Name="cmdFreezeForever"
+                        Content="Freeze Forever"
                         Width="150"
-                        Click="cmdFreeze_Click" />
+                        Click="cmdFreezeForever_Click" />
                 <Button Margin="2"
                         Content="N/A"
                         Width="150" />

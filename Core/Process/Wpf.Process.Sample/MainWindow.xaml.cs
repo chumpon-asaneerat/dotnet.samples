@@ -65,14 +65,14 @@ namespace Wpf.Process.Sample
 
         #region Button Handlers
 
-        private void cmdCheck_Click(object sender, RoutedEventArgs e)
+        private void cmdFreeze60_Click(object sender, RoutedEventArgs e)
         {
-
+            Thread.Sleep(TimeSpan.FromSeconds(60));
         }
 
-        private void cmdFreeze_Click(object sender, RoutedEventArgs e)
+        private void cmdFreezeForever_Click(object sender, RoutedEventArgs e)
         {
-            Thread.Sleep(TimeSpan.FromSeconds(20));
+            Thread.Sleep(-1);
         }
 
         #endregion

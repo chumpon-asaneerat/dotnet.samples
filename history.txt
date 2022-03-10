@@ -1,4 +1,9 @@
 [commited]
+2022-03-10 #2
+- Wpf.Process.Sample project
+  - Add Freeze code #2.
+
+[commited]
 2022-03-10 #1
 - Wpf.Process.Sample project
   - Add Freeze code #1.
