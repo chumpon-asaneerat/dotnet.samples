@@ -1,4 +1,9 @@
 [commited]
+2022-03-10 #1
+- Wpf.Process.Sample project
+  - Add Freeze code #1.
+
+[commited]
 2022-03-08 #16
 - Wpf.WS.Server project
   - Add Swashbuckle.Core reference.
