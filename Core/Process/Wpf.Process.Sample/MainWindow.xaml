@@ -85,6 +85,31 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <Grid />
+        <ListView x:Name="grid" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="20"
+                                    DisplayMemberBinding="{Binding Path=IsCurrentStr}"
+                                    Header="" />
+                    <GridViewColumn Width="150"
+                                    DisplayMemberBinding="{Binding Path=ProcessName}"
+                                    Header="Name" />
+                    <GridViewColumn Width="100"
+                                    DisplayMemberBinding="{Binding Path=Id}"
+                                    Header="ProcessId" />
+                    <!--
+                    <GridViewColumn Width="100"
+                                    DisplayMemberBinding="{Binding Path=Handle}"
+                                    Header="Handle" />
+                    <GridViewColumn Width="200"
+                                    DisplayMemberBinding="{Binding Path=MainWindowTitle}"
+                                    Header="Title (Window)" />
+                    <GridViewColumn Width="100"
+                                    DisplayMemberBinding="{Binding Path=MainWindowHandle}"
+                                    Header="Handle (Window)" />
+                    -->
+                </GridView>
+            </ListView.View>
+        </ListView>
     </DockPanel>
 </Window>
