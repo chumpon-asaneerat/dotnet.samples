@@ -26,8 +26,10 @@
                         Width="150"
                         Click="cmdFreezeForever_Click" />
                 <Button Margin="2"
-                        Content="N/A"
-                        Width="150" />
+                        x:Name="cmdKillAllExceptCurrent"
+                        Content="Kill all (except current)"
+                        Width="150" 
+                        Click="cmdKillAllExceptCurrent_Click" />
                 <Button Margin="2"
                         Content="N/A"
                         Width="150" />
@@ -91,12 +93,29 @@
                     <GridViewColumn Width="20"
                                     DisplayMemberBinding="{Binding Path=IsCurrentSymbol}"
                                     Header="" />
+                    <GridViewColumn Width="60" Header="">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="cmdKill" Width="50" Content="Kill" Click="cmdKill_Click"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Width="150"
                                     DisplayMemberBinding="{Binding Path=ProcessName}"
                                     Header="Name" />
                     <GridViewColumn Width="100"
                                     DisplayMemberBinding="{Binding Path=Id}"
                                     Header="ProcessId" />
+                    <GridViewColumn Width="120"
+                                    DisplayMemberBinding="{Binding Path=StartTime, StringFormat={}{0:yyyy/MM/dd HH:mm:ss}}"
+                                    Header="Start Time" />
+                    <GridViewColumn Width="120"
+                                    DisplayMemberBinding="{Binding Path=ExitTime, StringFormat={}{0:yyyy/MM/dd HH:mm:ss}}"
+                                    Header="Exit Time" />
+                    <GridViewColumn Width="100"
+                                    DisplayMemberBinding="{Binding Path=Responding}"
+                                    Header="Responding" />
+                    <!--
                     <GridViewColumn Width="100"
                                     DisplayMemberBinding="{Binding Path=Handle}"
                                     Header="Handle" />
@@ -106,7 +125,8 @@
                     <GridViewColumn Width="100"
                                     DisplayMemberBinding="{Binding Path=MainWindowHandle}"
                                     Header="Handle (Window)" />
-                    <GridViewColumn Width="250"
+                    -->
+                    <GridViewColumn Width="350"
                                     DisplayMemberBinding="{Binding Path=ErrorMessage}"
                                     Header="ErrorMessage" />
                 </GridView>

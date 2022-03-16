@@ -82,6 +82,24 @@ namespace Wpf.Process.Sample
             Thread.Sleep(-1);
         }
 
+        private void cmdKillAllExceptCurrent_Click(object sender, RoutedEventArgs e)
+        {
+            this.CurrentProcess().KillAll();
+        }
+
+        private void cmdKill_Click(object sender, RoutedEventArgs e)
+        {
+            // Kill single process
+            if (sender is Button && (sender as Button).DataContext is NProcess)
+            {
+                var proc = (sender as Button).DataContext as NProcess;
+                if (null != proc)
+                {
+                    proc.Kill();
+                }
+            }
+        }
+
         #endregion
 
         #region Timer Handler

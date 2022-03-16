@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Management;
 
 #endregion
 
 namespace Wpf.Process.Sample
 {
+    #region NProcess
 
     public class NProcess : ICloneable
     {
@@ -264,6 +266,38 @@ namespace Wpf.Process.Sample
 
         #endregion
 
+        #region Public Methods
+
+        public void Kill() 
+        {
+            try { KillProcess(this.Id); }
+            catch (Exception) { }
+        }
+
+        public void KillAll(bool includeCurrent = false)
+        {
+            if (string.IsNullOrWhiteSpace(this.ProcessName)) 
+                return;
+            var currId = (null != NProcess.Current) ? NProcess.Current.Id : -1;
+            var procs = System.Diagnostics.Process.GetProcessesByName(this.ProcessName);
+            if (null != procs && procs.Length > 0)
+            {
+                foreach(var proc in procs)
+                {
+                    if (null != proc) 
+                    {
+                        if (!includeCurrent && proc.Id == currId)
+                            // skip current if current and not in kill all mode
+                            continue;
+                        // kill all by WMI
+                        KillProcess(proc.Id);
+                    }
+                }
+            }
+        }
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
@@ -350,33 +384,11 @@ namespace Wpf.Process.Sample
         {
             return new NProcess(process);
         }
-
-        #endregion
-    }
-
-    public static class ProcessUtils
-    {
-        public static NProcess Create(this System.Diagnostics.Process process)
-        {
-            return NProcess.Create(process);
-        }
-        public static System.Diagnostics.Process Current { get { return NProcess.Current; } }
-
-        public static System.Diagnostics.Process[] GetProcesses(string processName)
-        {
-            if (string.IsNullOrWhiteSpace(processName))
-                return null;
-            return System.Diagnostics.Process.GetProcessesByName(processName);
-        }
-        public static System.Diagnostics.Process[] GetProcesses(System.Diagnostics.Process process)
-        {
-            if (null == process || string.IsNullOrWhiteSpace(process.ProcessName))
-                return null;
-            return System.Diagnostics.Process.GetProcessesByName(process.ProcessName);
-        }
-
-        /*
-        private static void KillProcessAndChildrens(int pid)
+        /// <summary>
+        /// Kill Process and children.
+        /// </summary>
+        /// <param name="pid">The process Id.</param>
+        private static void KillProcess(int pid)
         {
             ManagementObjectSearcher processSearcher = new ManagementObjectSearcher
               ("Select * From Win32_Process Where ParentProcessID=" + pid);
@@ -387,14 +399,14 @@ namespace Wpf.Process.Sample
             {
                 foreach (ManagementObject mo in processCollection)
                 {
-                    KillProcessAndChildrens(Convert.ToInt32(mo["ProcessID"])); //kill child processes(also kills childrens of childrens etc.)
+                    // kill child processes(also kills childrens of childrens etc.)
+                    KillProcess(Convert.ToInt32(mo["ProcessID"])); 
                 }
             }
-
             // Then kill parents.
             try
             {
-                Process proc = Process.GetProcessById(pid);
+                System.Diagnostics.Process proc = System.Diagnostics.Process.GetProcessById(pid);
                 if (!proc.HasExited) proc.Kill();
             }
             catch (ArgumentException)
@@ -402,6 +414,28 @@ namespace Wpf.Process.Sample
                 // Process already exited.
             }
         }
-        */
+
+        #endregion
+    }
+
+    #endregion
+
+    public static class ProcessUtils
+    {
+        public static NProcess Create(this System.Diagnostics.Process process)
+        {
+            return NProcess.Create(process);
+        }
+        public static System.Diagnostics.Process Current { get { return NProcess.Current; } }
+        public static NProcess CurrentProcess(this object obj)
+        {
+            return NProcess.Create(NProcess.Current);
+        }
+
+        public static System.Diagnostics.Process[] GetProcesses(string processName) 
+        {
+            if (string.IsNullOrEmpty(processName)) return null;
+            return System.Diagnostics.Process.GetProcessesByName(processName);
+        }
     }
 }
