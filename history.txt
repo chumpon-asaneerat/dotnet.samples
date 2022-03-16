@@ -1,4 +1,9 @@
 [commited]
+2022-03-16 #1
+- Wpf.Process.Sample project
+  - Update Process related code #2.
+
+[commited]
 2022-03-11 #1
 - Wpf.Process.Sample project
   - Add Process related code #1.

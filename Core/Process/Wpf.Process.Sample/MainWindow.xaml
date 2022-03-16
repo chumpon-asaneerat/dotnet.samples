@@ -89,7 +89,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="20"
-                                    DisplayMemberBinding="{Binding Path=IsCurrentStr}"
+                                    DisplayMemberBinding="{Binding Path=IsCurrentSymbol}"
                                     Header="" />
                     <GridViewColumn Width="150"
                                     DisplayMemberBinding="{Binding Path=ProcessName}"
@@ -97,7 +97,6 @@
                     <GridViewColumn Width="100"
                                     DisplayMemberBinding="{Binding Path=Id}"
                                     Header="ProcessId" />
-                    <!--
                     <GridViewColumn Width="100"
                                     DisplayMemberBinding="{Binding Path=Handle}"
                                     Header="Handle" />
@@ -107,7 +106,9 @@
                     <GridViewColumn Width="100"
                                     DisplayMemberBinding="{Binding Path=MainWindowHandle}"
                                     Header="Handle (Window)" />
-                    -->
+                    <GridViewColumn Width="250"
+                                    DisplayMemberBinding="{Binding Path=ErrorMessage}"
+                                    Header="ErrorMessage" />
                 </GridView>
             </ListView.View>
         </ListView>

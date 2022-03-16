@@ -39,7 +39,7 @@ namespace Wpf.Process.Sample
         #region Internal Variables
 
         private DispatcherTimer _timer = null;
-        private ObservableCollection<ProcessEx> _items = new ObservableCollection<ProcessEx>();
+        private ObservableCollection<NProcess> _items = new ObservableCollection<NProcess>();
 
         #endregion
 
@@ -47,6 +47,9 @@ namespace Wpf.Process.Sample
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // Setup Title.
+            this.Title = string.Format("Process Sample : [{0}]", NProcess.Current.Id);
+
             grid.ItemsSource = _items;
 
             _timer = new DispatcherTimer();
@@ -114,7 +117,7 @@ namespace Wpf.Process.Sample
 
             grid.ItemsSource = null;
 
-            List<ProcessEx> procs = new List<ProcessEx>();
+            List<NProcess> procs = new List<NProcess>();
             foreach (var proc in processes)
             {
                 procs.Add(proc.Create());
