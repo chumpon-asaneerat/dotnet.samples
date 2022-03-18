@@ -10,8 +10,6 @@ using System.Threading.Tasks;
 
 namespace Singelton
 {
-    // work but seem Weird for self reference generic constraint???.
-
     public class NSingelton<T> where T : NSingelton<T>
     {
         #region Singelton
@@ -24,6 +22,9 @@ namespace Singelton
             T ret = default(T);
             lock (typeof(T))
             {
+                // need some error check and from information 
+                // Activator.CreateInstance is a bit faster that reflection when call 1 time.
+                // need to investigate more.
                 ret = Activator.CreateInstance(typeof(T), true) as T;
             }
             return ret;
