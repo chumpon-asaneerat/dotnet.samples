@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace Singelton
 {
+    // work but seem Weird for self reference generic constraint???.
+
     public class NSingelton<T> where T : NSingelton<T>
     {
         #region Singelton
