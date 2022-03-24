@@ -1,4 +1,11 @@
 [commited]
+2022-03-24 #1
+- Singleton projects
+  - Update NSingelton class.
+  - Update Sample app.
+
+--------------------------------------------------------------------------------------------------------------------
+[commited]
 2022-03-18 #2
 - Single.Common project
   - Update comment need more check #2.

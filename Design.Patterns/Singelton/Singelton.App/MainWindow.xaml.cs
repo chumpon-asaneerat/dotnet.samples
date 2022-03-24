@@ -6,14 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 #endregion
 
@@ -33,12 +26,36 @@ namespace Singelton
 
         #endregion
 
+        private DispatcherTimer timer1;
+        private DispatcherTimer timer2;
+
         #region Loaded
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            timer1 = new DispatcherTimer();
+            timer1.Interval = TimeSpan.FromMilliseconds(1000);
+            timer1.Tick += Timer1_Tick;
+
+            timer2 = new DispatcherTimer();
+            timer2.Interval = TimeSpan.FromMilliseconds(1000);
+            timer2.Tick += Timer2_Tick;
+
+            timer1.Start();
+            timer2.Start();
+        }
+
+        #endregion
+
+        #region Timers
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
             LocalDb.Instance.ShowMe();
-            LocalDb.Instance.ShowMe();
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
             LocalDb.Instance.ShowMe();
         }
 
@@ -49,15 +66,15 @@ namespace Singelton
     {
         private int iCnt = 0;
 
-        protected LocalDb() : base() 
+        protected LocalDb() : base()
         {
-            Console.WriteLine("Call constructor");
+            Console.WriteLine("Call Ctor.");
         }
 
         public void ShowMe()
         {
             iCnt++;
-            Console.WriteLine("Call show me {0}", iCnt);
+            Console.WriteLine("Call show me {0} at {1:HH:mm:ss.ffffff}", iCnt, DateTime.Now);
         }
     }
 }
