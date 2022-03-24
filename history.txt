@@ -1,4 +1,9 @@
 [commited]
+2022-03-24 #2
+- Wpf.Rest.Client projects
+  - Update NRestClient #1.
+
+[commited]
 2022-03-24 #1
 - Singleton projects
   - Update NSingelton class.
