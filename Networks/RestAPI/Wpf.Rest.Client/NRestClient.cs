@@ -22,13 +22,16 @@ namespace Wpf.Rest.Client
             try
             {
                 var client = new RestClient(baseUrl);
+                // Note:
+                // timeout used when connect is establish but server is not response
+                // but in case server is not avaliable or cannot reach server due to network failed
+                // the client, response is return around 4s (that ignore timeout value).
+                client.Timeout = timeout;
                 //client.ReadWriteTimeout = int.MaxValue;
-                client.Timeout = timeout; // NOTE. if value over than 4 seconds is always timeout at 4.12 seconds.
 
                 var request = new RestRequest(actionUrl, Method.GET);
-                request.ReadWriteTimeout = client.ReadWriteTimeout;
-                request.Timeout = client.Timeout;
-
+                //request.Timeout = client.Timeout;
+                //request.ReadWriteTimeout = client.ReadWriteTimeout;
                 var response = client.Execute(request);
                 if (null != response)
                 {
@@ -91,13 +94,14 @@ namespace Wpf.Rest.Client
                 }
                 else
                 {
-                    Console.WriteLine("P3");
+                    // response object is null
+                    Console.WriteLine("Response object is null.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // timeout
-                Console.WriteLine("P4");
+                // unknown error
+                Console.WriteLine("Unknown error: Exception: {0}", ex);
             }
             return ret;
         }

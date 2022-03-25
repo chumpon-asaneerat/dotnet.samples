@@ -1,4 +1,9 @@
 [commited]
+2022-03-25 #2
+- Wpf.Rest.Client projects
+  - Update NRestClient #3.
+
+[commited]
 2022-03-25 #1
 - Wpf.Rest.Client projects
   - Update NRestClient #2.
