@@ -41,7 +41,7 @@ namespace Wpf.Rest.Client
         {
             string baseUrl = @"http://localhost:8000/dmt-scw/api/v1";
             string apiUrl = @"version";
-            int timeout = 1000 * 30;
+            int timeout = 1000 * 5;
 
             DateTime dt = DateTime.Now;
             Console.WriteLine("Call: {0}/{1}", baseUrl, apiUrl);

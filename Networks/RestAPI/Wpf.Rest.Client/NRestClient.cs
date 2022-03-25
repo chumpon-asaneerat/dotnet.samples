@@ -34,7 +34,18 @@ namespace Wpf.Rest.Client
                 {
                     if (!response.IsSuccessful)
                     {
-                        Console.WriteLine("response failed. status: {0}", response.ResponseStatus);
+                        Console.WriteLine("response failed.");
+
+                        var ex = response.ErrorException;
+                        if (null != ex)
+                        {
+                            if (response.ErrorException is WebException)
+                            {
+                                var status = (ex as WebException).Status;
+                                Console.WriteLine(status);
+                            }
+                            else Console.WriteLine(ex.GetType());
+                        }
 
                         switch (response.ResponseStatus)
                         {
@@ -55,14 +66,17 @@ namespace Wpf.Rest.Client
                         Console.WriteLine("response success.");
                     }
 
-                    int code = (int)response.StatusCode;
+                    var respStatus = response.ResponseStatus;
+                    int httpStatusCode = (int)response.StatusCode;
                     string desc = response.StatusDescription;
 
-                    Console.WriteLine("response is not null. code {0}, desc: {1}", code, desc);
+                    Console.WriteLine("response is not null. response status: {0}, http status code {1}, http status desc: {2}",
+                        respStatus, httpStatusCode, desc);
+                    Console.WriteLine("error: {0}", response.ErrorMessage);
 
                     //HttpStatus status = (code >= 200 && code <= 399) ? HttpStatus.Success : HttpStatus.Failed;
                     if (
-                        (code >= 200 && code <= 399) && // test code
+                        (httpStatusCode >= 200 && httpStatusCode <= 399) && // test code
                         // response.IsSuccessful() && 
                         null != response.Content)
                     {
