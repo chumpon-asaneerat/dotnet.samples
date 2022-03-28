@@ -1,4 +1,9 @@
 [commited]
+2022-03-28 #3
+- Update Wpf.Compression.Sample project #1.
+  - Add sample use System.IO.Compression.ZipFile class
+
+[commited]
 2022-03-28 #2
 - Add Wpf.Compression.Sample project.
 
