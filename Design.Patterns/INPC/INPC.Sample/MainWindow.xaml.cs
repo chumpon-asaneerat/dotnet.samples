@@ -37,6 +37,7 @@ namespace INPC.Sample
         {
             txtSrc.DataContext = item;
             txtDst.DataContext = item;
+            txtTotal.DataContext = item;
         }
 
         private void cmdTest_Click(object sender, RoutedEventArgs e)
@@ -95,6 +96,36 @@ namespace INPC.Sample
     */
     #endregion
 
+    #region INPCNet40v2
+    public class Item : INPCNet40v2
+    {
+        private int _total = 0;
+        private string _value = string.Empty;
+        public string Value
+        {
+            get { return _value; }
+            set 
+            {
+                IfChanged(ref _value, value)
+                    .Then((owner) =>
+                    {
+                        Console.WriteLine("Value changed. old: {0}, new {1}", owner.OldValue, owner.NewValue);
+                    })
+                    .Raise()
+                    .Then((owner) =>
+                    {
+                        _total++;
+                        Console.WriteLine("After Raise Event.", owner.OldValue, owner.NewValue);
+                    });
+                this.Raise(() => Total );
+            }
+        }
+
+        public int Total { get { return _total; } set { }  }
+    }
+
+    #endregion
+
     #region INotifyPropertyChanged Extensions v1
 
     // use INotifyPropertyChanged Extensions v1
@@ -132,6 +163,7 @@ namespace INPC.Sample
     #region INotifyPropertyChanged Extensions v2
 
     // use INotifyPropertyChanged Extensions v2
+    /*
     public class Item : System.ComponentModel.INotifyPropertyChanged
     {
         protected virtual void OnPropertyChanged(string propertyName)
@@ -162,6 +194,6 @@ namespace INPC.Sample
             }
         }
     }
-
+    */
     #endregion
 }

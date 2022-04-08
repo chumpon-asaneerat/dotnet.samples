@@ -1,4 +1,10 @@
 [commited]
+2022-04-08 #1
+- INPC.Sample project
+  - Implements advance feature #2.
+
+--------------------------------------------------------------------------------------------------------------------
+[commited]
 2022-03-28 #3
 - Update Wpf.Compression.Sample project #1.
   - Add sample use System.IO.Compression.ZipFile class

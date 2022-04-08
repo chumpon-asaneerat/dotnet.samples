@@ -133,7 +133,119 @@ namespace INPC.Sample
 
     #endregion
 
-    #region NET40 - LINQv2
+    #region NET40v2
+
+    public class INPCNet40v2 : INotifyPropertyChanged
+    {
+        public class PropertyChangedAction<T>
+        {
+            private PropertyChangedAction() : base() { }
+            internal PropertyChangedAction(INPCNet40v2 sender,
+                string propertyName,
+                T oldValue, T newValue,
+                bool hasChanged = false) : this()
+            {
+                Sender = sender;
+                PropertyName = propertyName;
+                OldValue = oldValue;
+                NewValue = newValue;
+                HasChanged = hasChanged;
+            }
+
+            public INPCNet40v2 Sender { get; private set; }
+            public string PropertyName { get; private set; }
+            public bool HasChanged { get; internal set; }
+
+            public T OldValue { get; private set; }
+            public T NewValue { get; private set; }
+            public PropertyChangedAction<T> Then(Action<PropertyChangedAction<T>> action)
+            {
+                if (null != Sender && HasChanged && !string.IsNullOrWhiteSpace(PropertyName))
+                {
+                    if (null != action) action(this);
+                }
+                return this;
+            }
+
+            public PropertyChangedAction<T> Raise()
+            {
+                if (null != Sender && HasChanged && !string.IsNullOrWhiteSpace(PropertyName))
+                {
+                    Sender.OnPropertyChanged(PropertyName);
+                }
+                return this;
+            }
+
+            public PropertyChangedAction<T> Raise(string propertyName)
+            {
+                if (null != Sender && HasChanged && !string.IsNullOrWhiteSpace(propertyName))
+                {
+                    Sender.OnPropertyChanged(propertyName);
+                }
+                return this;
+            }
+            public void Raise(params Expression<Func<object>>[] actions)
+            {
+                if (null != Sender && null != actions && actions.Length > 0)
+                {
+                    Sender.Raise(actions);
+                }
+            }
+        }
+
+
+        // boiler-plate
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected internal virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected internal void OnPropertyChanged<T>(Expression<Func<T>> selectorExpression)
+        {
+            if (selectorExpression == null)
+                throw new ArgumentNullException("selectorExpression");
+            var me = selectorExpression.Body as MemberExpression;
+
+            // Nullable properties can be nested inside of a convert function
+            if (me == null)
+            {
+                var ue = selectorExpression.Body as UnaryExpression;
+                if (ue != null)
+                    me = ue.Operand as MemberExpression;
+            }
+
+            if (me == null)
+                throw new ArgumentException("The body must be a member expression");
+
+            OnPropertyChanged(me.Member.Name);
+        }
+
+        public void Raise(params Expression<Func<object>>[] actions)
+        {
+            if (null != actions && actions.Length > 0)
+            {
+                foreach (var item in actions)
+                    OnPropertyChanged(item);
+            }
+        }
+
+        public PropertyChangedAction<T> IfChanged<T>(ref T field, T value,
+            [CallerMemberName] string propertyName = "")
+        {
+            var eqComp = EqualityComparer<T>.Default;
+            PropertyChangedAction<T> action = new PropertyChangedAction<T>(this, propertyName, field, value, false);
+            if (!eqComp.Equals(field, value))
+            {
+                field = value;
+                action.HasChanged = true; // set flag.
+            }
+            return action;
+        }
+    }
+
 
     #endregion
 

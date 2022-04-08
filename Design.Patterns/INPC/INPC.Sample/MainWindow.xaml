@@ -24,7 +24,11 @@
             <TextBox x:Name="txtDst" Text="{Binding Value}"/>
         </StackPanel>
         <Grid Margin="5, 2" Grid.Column="0" Grid.Row="1">
-            <StackPanel Orientation="Vertical">
+            <StackPanel Margin="5, 2" Orientation="Vertical">
+                <TextBlock x:Name="txtTotal" Margin="2">
+                    <Run Text="Total:" />
+                    <Run Text="{Binding Total}" />
+                </TextBlock>
                 <Button x:Name="cmdTest" Content="Test" Click="cmdTest_Click"/>
             </StackPanel>
         </Grid>
