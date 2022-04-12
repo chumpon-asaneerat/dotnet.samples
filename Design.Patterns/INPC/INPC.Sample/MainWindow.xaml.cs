@@ -97,6 +97,7 @@ namespace INPC.Sample
     #endregion
 
     #region INPCNet40v2
+    /*
     public class Item : INPCNet40v2
     {
         private int _total = 0;
@@ -123,7 +124,7 @@ namespace INPC.Sample
 
         public int Total { get { return _total; } set { }  }
     }
-
+    */
     #endregion
 
     #region INotifyPropertyChanged Extensions v1
@@ -195,5 +196,30 @@ namespace INPC.Sample
         }
     }
     */
+    #endregion
+
+    #region INPCDMTv5
+
+    public class Item : NInpc
+    {
+        private int _total = 0;
+        private string _value = string.Empty;
+
+        public string Value
+        {
+            get { return _value; }
+            set 
+            { 
+                if (_value != value)
+                {
+                    _value = value;
+                    ++_total;
+                    Raise(() => Value, () => Total);
+                }
+            }
+        }
+        public int Total { get { return _total; } set { } }
+    }
+
     #endregion
 }
