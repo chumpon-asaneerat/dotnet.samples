@@ -394,13 +394,27 @@ namespace INPC.Sample
 
         #endregion
 
-        #region Protected Methods
+        #region Public Methods
 
+        /// <summary>
+        /// Enable Notify Change Event.
+        /// </summary>
+        public void EnableNotify()
+        {
+            _lock = true;
+        }
+        /// <summary>
+        /// Disable Notify Change Event.
+        /// </summary>
+        public void DisableNotify()
+        {
+            _lock = false;
+        }
         /// <summary>
         /// Raise Property Changed event.
         /// </summary>
         /// <param name="propertyName">The property name.</param>
-        protected internal void Raise(string propertyName)
+        public void Raise(string propertyName)
         {
             if (_lock) return; // if lock do nothing
             // raise event.
@@ -421,25 +435,6 @@ namespace INPC.Sample
                     if (null != item) InternalRaise(item);
                 }
             }
-        }
-
-        #endregion
-
-        #region Public Methods
-
-        /// <summary>
-        /// Enable Notify Change Event.
-        /// </summary>
-        public void EnableNotify()
-        {
-            _lock = true;
-        }
-        /// <summary>
-        /// Disable Notify Change Event.
-        /// </summary>
-        public void DisableNotify()
-        {
-            _lock = false;
         }
 
         #endregion

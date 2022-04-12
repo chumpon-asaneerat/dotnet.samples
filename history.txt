@@ -1,4 +1,9 @@
 [commited]
+2022-04-12 #2
+- INPC.Sample project
+  - Implements advance feature #4.
+
+[commited]
 2022-04-12 #1
 - INPC.Sample project
   - Implements advance feature #3.
