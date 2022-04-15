@@ -1,3 +1,11 @@
+--------------------------------------------------------------------------------------------------------------------
+[commited]
+2022-04-15 #1
+- SQLite.Net.Sample project
+  - Add System.Data.SqlLite reference.
+  - Update project pre build scripts to copy required files.
+
+--------------------------------------------------------------------------------------------------------------------
 [commited]
 2022-04-12 #2
 - INPC.Sample project
