@@ -58,6 +58,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA", "Core\Compression\LZ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Compression.Sample", "Core\Compression\Wpf.Compression.Sample\Wpf.Compression.Sample.csproj", "{F88198B1-AE46-459D-B14B-5662F3BE06E2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TextBlock", "TextBlock", "{BB166832-2D5A-4A08-9321-37F691CE7DB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfHighlightTextBlockSample", "Controls\Wpf\TextBlock\WpfHighlightTextBlockSample\WpfHighlightTextBlockSample.csproj", "{D9E233BE-224A-43BD-B2EE-2B3DD959D290}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,6 +116,10 @@ Global
 		{F88198B1-AE46-459D-B14B-5662F3BE06E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F88198B1-AE46-459D-B14B-5662F3BE06E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F88198B1-AE46-459D-B14B-5662F3BE06E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +145,8 @@ Global
 		{E084E9C0-FEB7-4D93-A834-5B1CE21A35A5} = {27BC7FF6-F50D-4A36-805D-7732092F6935}
 		{797EFB51-5BC3-48F1-A568-4D56B3E6785F} = {E084E9C0-FEB7-4D93-A834-5B1CE21A35A5}
 		{F88198B1-AE46-459D-B14B-5662F3BE06E2} = {E084E9C0-FEB7-4D93-A834-5B1CE21A35A5}
+		{BB166832-2D5A-4A08-9321-37F691CE7DB2} = {D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}
+		{D9E233BE-224A-43BD-B2EE-2B3DD959D290} = {BB166832-2D5A-4A08-9321-37F691CE7DB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {501C5C0B-8BBB-4383-B646-E9B03E6880B4}
