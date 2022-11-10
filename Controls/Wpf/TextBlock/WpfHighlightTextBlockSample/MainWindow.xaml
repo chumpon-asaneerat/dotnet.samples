@@ -50,14 +50,27 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Width="700"
-                            Content="{Binding Text, Converter={StaticResource StringToXaml}}" />
+                            Content="{Binding Description, Converter={StaticResource StringToXaml}}" />
         </StackPanel>
         <StackPanel Grid.Row="3"
                     Orientation="Horizontal"
                     VerticalAlignment="Center">
             <TextBlock Text="Behavior:" />
             <TextBlock Width="5" />
-            <TextBox x:Name="txtData2" Width="700" />
+            <!--
+            <TextBox x:Name="txtData2"
+                     behavior:HighlightTermBehavior.TermToBeHighlighted="is"
+                     behavior:HighlightTermBehavior.Text="This is a pen"
+                     Width="700" />
+            -->
+            <TextBlock Margin="10,2"
+                       FontWeight="Bold"
+                       Text="{Binding Description}"
+                       behavior:TextBlockHighlighter.Selection="{Binding DataContext.Filter, Mode=OneWay, RelativeSource={RelativeSource AncestorType=Window}}"
+                       behavior:TextBlockHighlighter.HighlightColor="LightGreen"
+                       behavior:TextBlockHighlighter.Forecolor="Teal" />
+
+
         </StackPanel>
     </Grid>
 </Window>
