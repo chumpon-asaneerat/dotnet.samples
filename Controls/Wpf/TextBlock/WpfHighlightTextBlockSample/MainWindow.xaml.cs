@@ -1,5 +1,8 @@
-﻿using System;
+﻿#region Using
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+#endregion
+
 namespace WpfHighlightTextBlockSample
 {
     /// <summary>
@@ -20,9 +25,84 @@ namespace WpfHighlightTextBlockSample
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+
+            Setup();
         }
+
+        #endregion
+
+        #region Internal Class and Variable
+
+        class Search : INotifyPropertyChanged
+        {
+            private string _filter = string.Empty;
+            public string Filter 
+            {
+                get { return _filter; }
+                set
+                {
+                    if (_filter != value)
+                    {
+                        _filter = value;
+                        if (null != this.PropertyChanged)
+                        {
+                            this.PropertyChanged(this, new PropertyChangedEventArgs("Filter"));
+                        }
+                    }
+                }
+            }
+
+            private string _text = string.Empty;
+            public string Text 
+            {
+                get { return _text; }
+                set 
+                {
+                    if (_text != value)
+                    {
+                        _text = value;
+                        if (null != this.PropertyChanged)
+                        {
+                            this.PropertyChanged(this, new PropertyChangedEventArgs("Text"));
+                        }
+                    }
+                }
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+        }
+
+        private Search _search;
+
+        #endregion
+
+        #region Button Handlers
+
+        private void cmdFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void Setup()
+        {
+            _search = new Search();
+            this.DataContext = _search;
+            _search.Filter = "";
+            _search.Text = "Lorem Ipsum |~S~|is|~E~| simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+        }
+
+        #endregion
     }
 }

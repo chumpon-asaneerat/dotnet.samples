@@ -15,6 +15,7 @@ using System.Windows.Media;
 
 namespace WpfHighlightTextBlockSample.Controls
 {
+    [ValueConversion(typeof(string), typeof(object))]
     class StringToXamlConverter : IValueConverter
     {
         /// <summary>
@@ -28,6 +29,7 @@ namespace WpfHighlightTextBlockSample.Controls
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string input = value as string;
+
             if (input != null)
             {
                 var textBlock = new TextBlock();
@@ -50,6 +52,7 @@ namespace WpfHighlightTextBlockSample.Controls
                 {
                     textBlock.Inlines.Add(new Run(escapedXml));
                 }
+
                 return textBlock;
             }
 

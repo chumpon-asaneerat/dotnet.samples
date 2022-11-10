@@ -6,9 +6,12 @@
         xmlns:converter="clr-namespace:WpfHighlightTextBlockSample.Controls"
         xmlns:behavior="clr-namespace:WpfHighlightTextBlockSample.Controls"
         mc:Ignorable="d"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Window.Resources>
+        <converter:StringToXamlConverter x:Key="StringToXaml" />
         <sys:Double x:Key="ImageButtonWidth">250</sys:Double>
         <GridLength x:Key="RowHeight">25</GridLength>
     </Window.Resources>
@@ -23,22 +26,38 @@
             <RowDefinition Height="25" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
             <TextBlock Text="Filter:" />
             <TextBlock Width="5" />
-            <TextBox x:Name="txtFilter" Width="200"/>
+            <TextBox x:Name="txtFilter"
+                     Width="200"
+                     Text="{Binding Filter}" />
             <TextBlock Width="5" />
-            <Button x:Name="cmdFilter" Content="Filter" Width="80"/>
+            <Button x:Name="cmdFilter"
+                    Content="Filter"
+                    Width="80"
+                    Click="cmdFilter_Click" />
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
             <TextBlock Text="Converter:" />
             <TextBlock Width="5" />
-            <TextBox x:Name="txtData1" Width="700"/>
+            <ContentControl x:Name="txtData1"
+                            Margin="7,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="700"
+                            Content="{Binding Text, Converter={StaticResource StringToXaml}}" />
         </StackPanel>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
             <TextBlock Text="Behavior:" />
             <TextBlock Width="5" />
-            <TextBox x:Name="txtData2" Width="700"/>
+            <TextBox x:Name="txtData2" Width="700" />
         </StackPanel>
     </Grid>
 </Window>
