@@ -3,10 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfHighlightTextBlockSample"
+        xmlns:converter="clr-namespace:WpfHighlightTextBlockSample.Controls"
+        xmlns:behavior="clr-namespace:WpfHighlightTextBlockSample.Controls"
         mc:Ignorable="d"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <sys:Double x:Key="ImageButtonWidth">250</sys:Double>
+        <GridLength x:Key="RowHeight">25</GridLength>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource RowHeight}" />
+            <RowDefinition Height="{StaticResource RowHeight}" />
+            <RowDefinition Height="{StaticResource RowHeight}" />
+            <RowDefinition Height="{StaticResource RowHeight}" />
+            <RowDefinition Height="{StaticResource RowHeight}" />
+            <RowDefinition Height="{StaticResource RowHeight}" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Filter:" />
+            <TextBlock Width="5" />
+            <TextBox x:Name="txtFilter" Width="200"/>
+            <TextBlock Width="5" />
+            <Button x:Name="cmdFilter" Content="Filter" Width="80"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Converter:" />
+            <TextBlock Width="5" />
+            <TextBox x:Name="txtData1" Width="700"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Behavior:" />
+            <TextBlock Width="5" />
+            <TextBox x:Name="txtData2" Width="700"/>
+        </StackPanel>
     </Grid>
 </Window>
