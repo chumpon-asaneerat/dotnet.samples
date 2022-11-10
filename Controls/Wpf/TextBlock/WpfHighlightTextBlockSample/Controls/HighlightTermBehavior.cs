@@ -17,6 +17,8 @@ using System.Windows.Media;
 
 namespace WpfHighlightTextBlockSample.Controls
 {
+    // source: https://www.codeproject.com/Tips/1229482/WPF-TextBlock-Highlighter
+
     public static class TextBlockHighlighter
     {
         public static string GetSelection(DependencyObject obj)
@@ -107,6 +109,9 @@ namespace WpfHighlightTextBlockSample.Controls
     }
 
     /*
+    
+    // Not Work.
+    // Source: https://stackoverflow.com/questions/751741/wpf-textblock-highlight-certain-parts-based-on-search-condition
     public static class HighlightTermBehavior
     {
         public static readonly DependencyProperty TextProperty = DependencyProperty.RegisterAttached(
