@@ -44,9 +44,26 @@ namespace WpfShapeSample1
 
         #region Private Methods
 
+        private void AddShape(Shape shape)
+        {
+            if (null == shape) return;
+            canvas.Children.Add(shape);
+        }
+
         private void InitShapes()
         {
+            // Add a Line Element
+            var shape = new Line();
+            shape.Stroke = Brushes.LightSteelBlue;
+            shape.X1 = 1;
+            shape.X2 = 50;
+            shape.Y1 = 1;
+            shape.Y2 = 50;
+            shape.HorizontalAlignment = HorizontalAlignment.Left;
+            shape.VerticalAlignment = VerticalAlignment.Center;
+            shape.StrokeThickness = 2;
 
+            AddShape(shape);
         }
 
         #endregion
