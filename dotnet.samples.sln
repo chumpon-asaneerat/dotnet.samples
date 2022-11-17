@@ -62,6 +62,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TextBlock", "TextBlock", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfHighlightTextBlockSample", "Controls\Wpf\TextBlock\WpfHighlightTextBlockSample\WpfHighlightTextBlockSample.csproj", "{D9E233BE-224A-43BD-B2EE-2B3DD959D290}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shapes", "Shapes", "{F065A856-8047-49D5-B803-68A35C7A7C8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfShapeSample1", "WpfShapeSample1\WpfShapeSample1.csproj", "{F49FEB6C-2B05-43CF-9C45-2FB97021A05B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +124,10 @@ Global
 		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9E233BE-224A-43BD-B2EE-2B3DD959D290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49FEB6C-2B05-43CF-9C45-2FB97021A05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49FEB6C-2B05-43CF-9C45-2FB97021A05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49FEB6C-2B05-43CF-9C45-2FB97021A05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49FEB6C-2B05-43CF-9C45-2FB97021A05B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +155,7 @@ Global
 		{F88198B1-AE46-459D-B14B-5662F3BE06E2} = {E084E9C0-FEB7-4D93-A834-5B1CE21A35A5}
 		{BB166832-2D5A-4A08-9321-37F691CE7DB2} = {D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}
 		{D9E233BE-224A-43BD-B2EE-2B3DD959D290} = {BB166832-2D5A-4A08-9321-37F691CE7DB2}
+		{F065A856-8047-49D5-B803-68A35C7A7C8D} = {D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {501C5C0B-8BBB-4383-B646-E9B03E6880B4}
