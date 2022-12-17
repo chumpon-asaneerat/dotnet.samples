@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,5 +36,32 @@ namespace WpfDataBindingAttachPropertySample
         }
 
         #endregion
+    }
+
+    public class Example : INotifyPropertyChanged
+    {
+        private string _text = string.Empty;
+
+
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if (null != PropertyChanged) PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public string Text
+        {
+            get { return _text;  }
+            set
+            {
+                if (_text != value)
+                {
+                    _text = value;
+                    RaisePropertyChanged("Text");
+                }
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
