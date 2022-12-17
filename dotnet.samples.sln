@@ -68,7 +68,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfShapeSample1", "Controls
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AttachProperty", "AttachProperty", "{AA24017B-4A89-478A-BB64-FAF44B59165B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDataBindingAttachPropertySample", "WpfDataBindingAttachPropertySample\WpfDataBindingAttachPropertySample.csproj", "{01E22F0A-C2E9-4809-9471-23878790E897}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDataBindingAttachPropertySample", "Controls\Wpf\AttachProperty\WpfDataBindingAttachPropertySample\WpfDataBindingAttachPropertySample.csproj", "{01E22F0A-C2E9-4809-9471-23878790E897}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -166,6 +166,7 @@ Global
 		{F065A856-8047-49D5-B803-68A35C7A7C8D} = {D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}
 		{F49FEB6C-2B05-43CF-9C45-2FB97021A05B} = {F065A856-8047-49D5-B803-68A35C7A7C8D}
 		{AA24017B-4A89-478A-BB64-FAF44B59165B} = {D6B0118B-CF71-44AE-B191-F1DE45C7DE1B}
+		{01E22F0A-C2E9-4809-9471-23878790E897} = {AA24017B-4A89-478A-BB64-FAF44B59165B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {501C5C0B-8BBB-4383-B646-E9B03E6880B4}
