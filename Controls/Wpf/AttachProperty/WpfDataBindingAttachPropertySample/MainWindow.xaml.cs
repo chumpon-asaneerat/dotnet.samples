@@ -36,12 +36,51 @@ namespace WpfDataBindingAttachPropertySample
         }
 
         #endregion
+
+        #region Load/Unloaded
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Run();
+        }
+
+        private void Window_Unloaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Button Handlers
+
+        private void cmdCommit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Internal Variables
+
+        private Example testObj = new Example();
+
+        #endregion
+
+        #region Private Methods
+
+        private void Run()
+        {
+            this.DataContext = testObj;
+        }
+
+        #endregion
     }
+
+    #region Example class
 
     public class Example : INotifyPropertyChanged
     {
         private string _text = string.Empty;
-
 
         private void RaisePropertyChanged(string propertyName)
         {
@@ -61,7 +100,8 @@ namespace WpfDataBindingAttachPropertySample
             }
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
     }
+
+    #endregion
 }
